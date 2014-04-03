@@ -1,0 +1,87 @@
+
+.custom-form {
+	display: none;
+}
+
+.custom-drop-container {
+	height: 36px;
+	margin-top: 5px;
+}
+
+.selected-holder {
+	background-color: #e0e0e0; 
+	padding: 0 10px; 
+	width: 130px;
+	line-height: 36px; 
+	cursor: pointer;
+	display: block;
+	position: relative;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	&:after {
+		content: '';
+		display: block;
+		right: 7px;
+		top: 15px;
+		position: absolute;
+		cursor: pointer;
+		@extend .sprites-custom-drop-arrow_closed;
+	}
+
+}
+
+.custom-drop { 
+	width: 150px; 
+	position: relative;
+
+	/*&:focus {
+		outline: none;
+	}*/
+
+	&.inactive {
+		li {
+			display: none;
+		}
+	}
+
+	li { 
+		background-color: #e0e0e0; 
+		padding: 0 10px; 
+		width: 130px;
+		line-height: 36px; 
+		cursor: pointer; 
+		/*&.selected {
+			display: block;
+		}*/
+	}
+
+	&.active {
+		&:after {
+			@extend .sprites-custom-drop-arrow_open;
+		}
+		position: absolute; 
+		z-index: 95;
+		max-height: 150px;
+		overflow-y: auto;
+		overflow-x: hidden;
+		li {
+			&.selected {
+				background-color: $uniqlo-red !important; 
+				color: #ffffff !important;
+			}
+		}
+		&.has-hover li:hover,
+		.hover {
+			background-color: #bfbfbf; 
+			color: #000000;
+		}
+		&.above {
+			top: 100px;
+		}
+	}
+}
